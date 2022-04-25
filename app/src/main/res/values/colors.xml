@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="abutulisan">#7C7979</color>
+    <color name="birutoscabagus">#4FA7A0</color>
+    <color name="orenMantep">#F8C154</color>
+    <color name="light_white">#f2f5f8</color>
+    <color name="underline">#D8D6D6</color>
+    <color name="pinkMantep">#EC407A</color>
+    <color name="biruMantep">#26C6DA</color>
+    <color name="pinkSplash">#EA707D</color>
+
 </resources>

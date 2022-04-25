@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:layout_centerInParent="true"
+        android:text="Start"
+        />
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/btnStart"
+        android:textSize="50sp"
+        android:inputType="number"
+        android:gravity="center"
+        android:background="@color/birutoscabagus"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/btnStart"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:background="@color/birutoscabagus"
+        android:textColor="@color/black"
+        />
+
+</RelativeLayout>
