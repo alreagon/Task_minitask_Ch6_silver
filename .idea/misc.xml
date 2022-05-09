@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/.DATA GUE/Kuliah/Binar Academy/Tugas/CHAPTER_6/minitask/app/src/main/res/drawable/batenmain.xml" value="0.14" />
+        <entry key="..\:/.DATA GUE/Kuliah/Binar Academy/Tugas/CHAPTER_6/minitask/app/src/main/res/layout/activity_async_task.xml" value="0.22447916666666667" />
         <entry key="..\:/.DATA GUE/Kuliah/Binar Academy/Tugas/CHAPTER_6/minitask/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/.DATA GUE/Kuliah/Binar Academy/Tugas/CHAPTER_6/minitask/app/src/main/res/layout/activity_thread.xml" value="0.21041666666666667" />
+        <entry key="..\:/.DATA GUE/Kuliah/Binar Academy/Tugas/CHAPTER_6/minitask/app/src/main/res/layout/activity_thread2.xml" value="0.22447916666666667" />
       </map>
     </option>
   </component>
