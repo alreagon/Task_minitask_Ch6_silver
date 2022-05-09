@@ -27,5 +27,13 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Android Background Process: Thread", Toast.LENGTH_SHORT).show()
             true
         }
+        binding.topic3.setOnClickListener {
+            val Intent = Intent(this, Thread::class.java)
+            startActivity(Intent)
+        }
+        binding.topic3.setOnLongClickListener {
+            Toast.makeText(this, "DataStore", Toast.LENGTH_SHORT).show()
+            true
+        }
     }
 }

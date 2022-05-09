@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chapter_6_allminitask">
         <activity
+            android:name=".DataStoreMain"
+            android:exported="false" />
+        <activity
             android:name=".AsyncTask"
             android:exported="false" />
         <activity
