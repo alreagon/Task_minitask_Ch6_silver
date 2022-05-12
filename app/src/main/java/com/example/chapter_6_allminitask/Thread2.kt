@@ -20,6 +20,7 @@ class Thread2 : AppCompatActivity() {
     private lateinit var handler: Handler
     private var mvVariable = 10
     private lateinit var task: myAsyncTask
+    private lateinit var cancelTask: myAsyncTask
 
     private lateinit var scope: CoroutineScope
 
@@ -50,7 +51,11 @@ class Thread2 : AppCompatActivity() {
         binding.btnAsynctask.setOnClickListener {
             task = myAsyncTask(this)
             task.execute(10)
-
+        }
+        binding.btnCancelAsyntask.setOnClickListener {
+//            cancelTask = myAsyncTask().cancel(true)
+            //true nya itu bisa di cancel kalo mau di cancel pas download/ lagi berjalan
+            // false itu harus ngelarin satu kali jalan baru berhenti
         }
 
         binding.btnCancel.setOnClickListener {
@@ -60,6 +65,7 @@ class Thread2 : AppCompatActivity() {
             scope = CoroutineScope(Dispatchers.Main)
             // menjalankan coroutine baru di background dan dilanjutkan
             scope.launch {
+                // launck ini fire-forget, gk ada kembalian, beda kek async
                 // non-blocking delay selama 1 detik (satuan waktu default adalah ms)
                 delay(1000)
                 // print setelah delay
@@ -73,15 +79,27 @@ class Thread2 : AppCompatActivity() {
 //            scope.cancel()
         }
         binding.btnAsync.setOnClickListener {
-            runBlocking {
+            runBlocking(Dispatchers.Default) {
+                // Dispatchers ini buat penentu coroutines kita mau di jalanin dmn
+                // Semua corountine harus berjalan di dispatcher
+                // jadi yg default itu akan di block kalo kita make runBlocking
+                // kalo dispatcher gk di set, auto ke default
                 val first = async { getNumber() }
-                val result = first.await()
+                val result =
+                    first.await() //await = menunggu sampe proses nya selesai, baru ntar hasilnya masuk ke result
                 println("result coroutines : $result")
             }
+
+            //bisa ditulis gini jg
+//            GlobalScope.async {
+//
+//            }
         }
     }
 
     private suspend fun getNumber(): Int {
+        // suspend function ini bisa dipanggil sama coroutines/ suspend function lain
+        // intinya kalo mau manggil function ke coroutines harus make suspend function
         delay(1000)
         return 4 * 3
     }
@@ -120,7 +138,8 @@ class Thread2 : AppCompatActivity() {
         }).start()
     }
 
-    class myAsyncTask internal constructor(context: Thread2) : AsyncTask<Int, String, String?>() {
+    class myAsyncTask internal constructor(context: Thread2) :
+        AsyncTask<Int, String, String?>() { // doInB , onProgUp, onPostExc
 
         private var resp: String? = null
         private val activityReference: WeakReference<Thread2> = WeakReference(context)
@@ -128,7 +147,7 @@ class Thread2 : AppCompatActivity() {
         override fun onPreExecute() {
             val activity = activityReference.get()
             if (activity == null || activity.isFinishing) return
-            activity.binding.progressBar.visibility = View.GONE
+            activity.binding.progressBar.visibility = View.VISIBLE
         }
 
         override fun doInBackground(vararg params: Int?): String? {
@@ -158,7 +177,7 @@ class Thread2 : AppCompatActivity() {
             if (activity == null || activity.isFinishing) return
             activity.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
             activity.findViewById<TextView>(R.id.textViewAsyn).text = result.let { it }
-//            activity.= 100
+            activity.mvVariable = 100
         }
 
         override fun onProgressUpdate(vararg text: String?) {

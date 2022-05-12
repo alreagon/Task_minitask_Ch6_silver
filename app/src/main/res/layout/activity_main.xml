@@ -18,12 +18,32 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/topic1"
+            android:id="@+id/nyoba"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@drawable/batenmain"
             android:elevation="20dp"
+            android:text="@string/nyoba"
+            android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/topic1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/batenmain"
+            android:elevation="20dp"
             android:text="@string/topic_1"
+            android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/topic1_2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/batenmain"
+            android:elevation="20dp"
+            android:text="@string/topic_1_part_2"
             android:textColor="@color/black" />
 
         <androidx.appcompat.widget.AppCompatButton
